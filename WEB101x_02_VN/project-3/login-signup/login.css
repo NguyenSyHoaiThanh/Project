@@ -1,0 +1,21 @@
+div{
+    width: 20%;
+    border: 1px solid black;
+    margin: auto;
+}
+h2{
+    text-align: center;
+}
+#form1, label, input{
+    margin-left: 10px;
+}
+#form2, label, input{
+    margin-left: 10px;
+    margin-right: -2%;
+    margin-bottom: 10px;
+}
+#submit{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,259 @@
+@charset "ISO-8859-1";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.img-logo{
+    width: 80px;
+    height: 80px;
+    margin-left: 6%;
+    padding-top: 10px;
+    float: left;
+}
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #AEDBCE;
+}
+header ul{
+    list-style: none;
+}
+header ul li{
+    float: left;
+    line-height: 100px;
+    padding: 0 20px;
+}
+header ul li a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+header ul li input{
+    width: 250px;
+    height: 30px;
+    font-size: 17px;
+    border: none;
+}
+header ul li button:hover{
+    background: #ccc;
+}
+header ul li button{
+    float: right;
+  padding: 5px 10px;
+  margin-top: 35px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+header ul li label{
+    font-size: 20px;
+}
+header ul li select{
+    border: none;
+    background: none;
+    font-size: 17px;
+}
+
+nav{
+    width: 17%;
+    float: left;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+nav ul{
+    list-style: none;
+    width: 100%;
+}
+nav ul li a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding-left: 5%;
+}
+#slideshow {
+    overflow: hidden;
+    height: 300px;
+    width: 690px;
+    border-radius: 15px;
+    margin-left: 2.5%;
+    margin-top: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    float: left;
+}
+.slide-wrapper {
+    width: 2070px;
+    -webkit-animation: slide 14s ease infinite;
+}
+  
+.slide {
+    float: left;
+    height: 300px;
+    width: 690px;
+    
+}
+@-webkit-keyframes slide {
+    20% {margin-left: 0px;}
+    30% {margin-left: -690px;}
+    50% {margin-left: -690px;}
+    60% {margin-left: -1380px;}
+    80% {margin-left: -1380px;}
+}
+
+#right-slide{
+    width: 225px;
+    margin-right: 5%;
+    float: right;
+    margin-top: 20px;
+}
+#right-slide img{
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 23%;
+    margin-bottom: 5%;
+    border-radius: 15px;
+    float: left;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+}
+.card-image{
+    background-color: white;
+    height: 250px;
+    margin-bottom: 15px;
+    background-size: 70%;
+    border-radius: 15px 15px 0px 0px;
+}
+.card-image img{
+    padding-top: 15px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.card h2{
+    padding: 10px;
+}
+.card p{
+    padding: 10px;
+}
+.card a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+.button_1{
+    margin-bottom: 5%;
+    margin-left: 25%;
+    padding: 5px 25px;
+    font-size: 20px;
+    border-radius: none;
+    border-radius: 10px;
+    margin-top: 30%;
+}
+
+.button_1:hover {
+    background-color: red;
+    color: white;
+}
+
+.head{
+    height: 350px;
+}
+.container_card a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer .container{
+    float: left;
+    width: 100%;
+    margin: auto;
+    background-color: #24262b;
+    padding: 70px 0;
+}
+.footer ul{
+    list-style: none;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 5%;
+}
+
+.footer-col{
+    width: 22.5%;
+    padding: 0 15px;
+}
+
+.footer-col h4{
+    font-size: 20px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}

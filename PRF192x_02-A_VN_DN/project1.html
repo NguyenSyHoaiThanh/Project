@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the button to display an alert box.</p>
+    <button onclick="notify()">Try it</button>
+    <p id="name" style="font-weight: bold;"></p>
+    <p id="city" style="font-weight: bold;"></p>
+    <p id="phone" style="font-weight: bold;"></p>
+    <p id="email" style="font-weight: bold;"></p>
+    <p id="job" style="font-weight: bold;"></p>
+    <p id="age" style="font-weight: bold;"></p>
+    
+    <div id="next" style="display: none;">
+        <button type="button">Bước tiếp theo</button>
+    </div>
+    <script type="text/javascript">
+        function notify(){
+            alert("Chào mừng bạn đến với ứng dụng JavaScript đầu tiên");
+
+            let enterName = prompt("Hãy nhập tên của bạn:");
+            document.getElementById("name").innerHTML = "Tên: " + enterName;
+            
+            let enterCity = prompt("Hãy nhập thành phố bạn đang sống:");
+            document.getElementById("city").innerHTML = "Thành phố: " + enterCity;
+
+            let enterPhone = prompt("Hãy nhập số điện thoại của bạn:");
+            document.getElementById("phone").innerHTML = "Số điện thoại: " + enterPhone;
+
+            let enterAge = prompt("Nhập năm sinh của bạn:");
+
+            var d = new Date();
+            while(enterAge >= d.getFullYear()){
+                enterAge = prompt("Nhập lại năm sinh của bạn:");
+            }
+            document.getElementById("age").innerHTML = "Tuổi: " + (d.getFullYear() - enterAge);
+
+            let enterEmail = prompt("Hãy nhập email của bạn:");
+            document.getElementById("email").innerHTML = "Email: " + enterEmail;
+
+            let enterJob = prompt("Hãy nhập công việc của bạn:");
+            document.getElementById("job").innerHTML = "Công việc: " + enterJob;
+            
+            document.getElementById("next").style.display = 'block';
+        }
+        
+        function calculate(){
+            document.write()
+        }
+    </script>
+</body>
+</html>

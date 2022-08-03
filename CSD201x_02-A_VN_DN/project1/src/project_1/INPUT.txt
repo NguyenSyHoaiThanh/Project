@@ -1,0 +1,2 @@
+Input number of elements:7
+Array: [4, 2, 3, 1, 1, 2, 4]

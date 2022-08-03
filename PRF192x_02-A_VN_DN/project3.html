@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        header h1{
+            text-align: center;
+        }
+        main{
+            text-align: center;
+        }
+        #fullname, #math, #physical, #chemical {
+            margin-bottom: 10px;
+        }
+        button{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table{
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Class Marksheet</h1>
+    </header>
+    <main>
+        <form>
+            <label for="fullname">Họ tên</label>
+            <input type="text" id="fullname"><br>
+            <label for="math">Điểm toán</label>
+            <input type="number" id="math"><br>
+            <label for="physical">Điểm lý</label>
+            <input type="number" id="physical"><br>
+            <label for="chemistry">Điểm hóa</label>
+            <input type="number" id="chemistry"><br>
+        </form>
+        <button type="button" id="nhap">Nhập</button>
+
+        <table id="table">
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Toán</th>
+                <th>Lý</th>
+                <th>Hóa</th>
+                <th>Trung bình</th>
+            </tr>
+        </table>
+        <button type="button" id="diemTB">Tính điểm trung bình</button>
+        <button type="button" id="hsg">Xác định học sinh giỏi</button>
+    </main>
+
+    <script>
+        //khi trình duyệt load xong thì mới chạy các đoạn code bên trong
+        $(document).ready(function(){
+            var i = 0;
+            //gọi hàm nhập dữ liệu với sự kiện click
+            $("#nhap").click(function(){
+
+                //gán trị cho ô input
+                var name = $("#fullname").val();
+                var math = +$("#math").val();
+                var physical = +$("#physical").val();
+                var chemistry = +$("#chemistry").val();
+                var ave = "?";
+
+                //câu lệnh điều kiện kiểm tra tên và điểm số có nhập đúng hay không
+                if(name == "" || math =="" || physical == "" || chemistry == ""
+                || isNaN(math) || math < 0 || math > 10
+                || isNaN(physical) || physical < 0 || physical > 10
+                || isNaN(chemistry) || chemistry < 0 || chemistry > 10
+                ){
+                    alert ("khong hop le");
+                    return;
+                }
+                
+                //thêm nội dung vào ô
+                var addrow = "<tr>" +
+                        "<td>" + (i+=1) + "</td>" + 
+                        "<td>" + name + "</td>" +
+                        "<td>" + math.toFixed(1) + "</td>" +
+                        "<td>" + physical.toFixed(1) + "</td>" +
+                        "<td>" + chemistry.toFixed(1) + "</td>" +
+                        "<td>" + ave + "</td>" +     
+                    "</tr>"
+                $("#table").append(addrow);
+
+                //xóa trắng các ô input.
+                $('input').val("");     
+            });
+            //gọi hàm tính điểm trung bình bằng sự kiện click
+            $("#diemTB").click(function(){
+            
+            //lặp qua các phần tử trong bảng
+            $("tr").each(function(){
+
+                //lấy ra điểm số trong bảng
+                var math = $(this).children("td").eq(2).html();
+                var physical = $(this).children("td").eq(3).html();
+                var chemistry = $(this).children("td").eq(4).html();
+                var ave = (parseFloat(math) + parseFloat(physical) + parseFloat(chemistry))/3;
+
+                //gán điểm số trung bình vào bảng
+                $(this).children("td").eq(5).html(ave.toFixed(1));
+                });
+            });
+
+            //hàm xác định học sinh giỏi
+            $("#hsg").click(function(){
+                //lặp qua các phần tử trong bảng
+                $("tr").each(function(){
+
+                    //lấy ra điểm trung bình
+                    var ave = $(this).children("td").eq(5).html();
+                    //câu lệnh điều kiện điểm trung bình lớn hơn hoặc bằng 8 sẽ bôi đỏ
+                    if(ave>=8){
+                        $(this).children("td").css("color", "red");
+                    }
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project2</title>
+    <style>
+        header h1{
+            text-align: center;
+        }
+        main{
+            text-align: center;
+        }
+        #fullname, #math, #physical, #chemical {
+            margin-bottom: 10px;
+        }
+        button{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table{
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Class Marksheet</h1>
+    </header>
+    <main>
+        <form>
+            <label for="fullname">Họ tên</label>
+            <input type="text" id="fullname"><br>
+            <label for="math">Điểm toán</label>
+            <input type="number" id="math"><br>
+            <label for="physical">Điểm lý</label>
+            <input type="number" id="physical"><br>
+            <label for="chemistry">Điểm hóa</label>
+            <input type="number" id="chemistry"><br>
+        </form>
+        <button type="button" id="nhap">Nhập</button>
+
+        <table id="table">
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Toán</th>
+                <th>Lý</th>
+                <th>Hóa</th>
+                <th>Trung bình</th>
+            </tr>
+        </table>
+        <button type="button" id="diemTB">Tính điểm trung bình</button>
+        <button type="button" id="hsg">Xác định học sinh giỏi</button>
+    </main>
+
+    <script>
+        var i = 0;
+        //gọi hàm nhập dữ liệu bằng sự kiện click
+        var nhapDL = document.getElementById("nhap");
+        nhapDL.addEventListener("click", nhapDuLieu);
+        
+        //hàm nhập dữ liệu vào bảng
+        function nhapDuLieu(){
+            i++;
+            
+            //đối tượng lưu trữ các thông tin
+            var testScore = { 
+                name: "",
+                math: 0,
+                physical: 0,
+                chemistry: 0,
+                vsg: "?"
+            };
+
+            //lấy và gán giá trị vào thuộc tính tương ứng của đối tượng TestScore 
+            testScore.name = document.getElementById("fullname").value;
+            testScore.math = document.getElementById("math").value;
+            testScore.physical = document.getElementById("physical").value;
+            testScore.chemistry = document.getElementById("chemistry").value;
+        
+            var table = document.getElementById("table");
+            //thêm hàng
+            var row = table.insertRow(-1);
+            //thêm ô vào các hàng
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+
+            //gán nội dung vào các ô
+            cell1.innerHTML = i;
+            cell2.innerHTML = testScore.name;
+            cell3.innerHTML = testScore.math;
+            cell4.innerHTML = testScore.physical;
+            cell5.innerHTML = testScore.chemistry;
+            cell6.innerHTML = "?";
+            
+            //xóa trắng các ô input.
+            document.getElementById("fullname").value = "";
+            document.getElementById("math").value = "";
+            document.getElementById("physical").value = "";
+            document.getElementById("chemistry").value = "";
+        }
+        //gọi hàm tính điểm trung bình bằng sự kiện click
+        var diemTB = document.getElementById("diemTB");
+        diemTB.addEventListener("click", tinhDiemTB);
+
+        //hàm tính điểm trung bình
+        function tinhDiemTB(){
+            
+            //lặp qua các ô điểm
+            for (let i = 1, row; row = table.rows[i]; i++) {
+                //lấy giá trị và chuyển đối từ kiểu chuỗi thành kiểu số
+                var math = parseFloat(row.cells[2].innerHTML);
+                var physical = parseFloat(row.cells[3].innerHTML);
+                var chemistry = parseFloat(row.cells[4].innerHTML);
+                //tính điểm trung bình và làm tròn đến 1 số trước dấu phẩy
+                var diemTrungBinh = ((math + physical + chemistry)/3).toFixed(1);
+                //gán điểm trung bình vào ô Trung Bình
+                row.cells[5].innerHTML = diemTrungBinh;
+            }
+        }
+
+        //gọi hàm xác định học sinh giỏi bằng sự kiên click
+        var HSG = document.getElementById("hsg");
+        HSG.addEventListener("click", hocSinhGioi);
+
+        //hàm xác định học sinh giỏi
+        function hocSinhGioi(){
+            //lặp qua các ô điểm trung bình
+            for (let i = 1, row; row = table.rows[i]; i++) {
+                var diemTrungBinh = parseFloat(row.cells[5].innerHTML);
+                //câu lệnh điều kiện điểm trung bình lớn hơn hoặc bằng 8 sẽ bôi đỏ
+                if (diemTrungBinh >=8) {
+                    table.rows[i].style = "color:red";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

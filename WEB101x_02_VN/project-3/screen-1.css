@@ -1,0 +1,28 @@
+#banner{
+    background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
+    background-size: cover;
+    height: 500px;
+}
+#banner h1{
+    padding-left: 5%;
+    padding-top: 15%;
+    font-size: 38px;
+    color: white;
+    font-weight: bold;
+    line-height: 0.5;
+}
+#banner p{
+    padding-left: 5%;
+    color: white;
+}
+#text-main h1{
+    font-size: 38px;
+    padding-left: 5%;
+    padding-top: 1%;
+    font-weight: bold;
+    line-height: 0.5;
+}
+#text-main p{
+    padding-left: 5%;
+    padding-bottom: 2%;
+}

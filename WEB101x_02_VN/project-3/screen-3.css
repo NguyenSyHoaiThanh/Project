@@ -1,0 +1,54 @@
+nav{
+    background-color: #000033;
+}
+nav a{
+    font-size: 13px;
+    color: whitesmoke;
+}
+main{
+    background-color: white;
+}
+#banner h1{
+    color: black;
+    padding-left: 5%;
+    padding-top: 5%;
+    line-height: 1.5;
+    font-weight: bold;
+}
+#banner p{
+    font-weight: none;
+    font-size: 16px;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
+#text-main h1{
+    color: black;
+    padding-left: 7%;
+    padding-top: 3%;
+    font-weight: bold;
+}
+#text-main p{
+    font-weight: none;
+    font-size: 16px;
+    padding-left: 7%;
+    padding-bottom: 2%;
+}
+main{
+    background-color: white;
+}
+footer{
+    background-color: white;
+}
+footer h2{
+    font-weight: bold;
+}
+footer p{
+    font-size: 11px;
+    color: black;
+}
+footer a{
+    color: black;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+}
